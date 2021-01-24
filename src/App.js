@@ -1,4 +1,6 @@
 import React from 'react';
+import BookList from './components/BookList';
+import Navbar from './components/Navbar';
 
 
 
@@ -6,7 +8,8 @@ import React from 'react';
 function App() {
   return (
     <div className="App">
-      Hello my friends
+      <Navbar />
+      <BookList />
     </div>
   );
 }
