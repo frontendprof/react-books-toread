@@ -6,21 +6,32 @@ import { ThemeContext } from '../contexts/ThemeContext';
 
 class BookList extends Component {
 
-    static contextType=ThemeContext;
+    
 
     render() {
-        const {isLightTheme,light,dark}=this.context;
-        const theme=isLightTheme?light:dark;
+        
         return (
-            <div className="book-list" style={{ color:theme.syntax,background:theme.bg }}>
+            <ThemeContext.Consumer>{context=>{
+                const {isLightTheme,light,dark}=context;
+                const theme=isLightTheme?light:dark;
 
-                <ul>
-                    <li style={{ background:theme.ui }}>Road To Mecca</li>
-                    <li style={{ background:theme.ui }}>The Divine Reality</li>
-                    <li style={{ background:theme.ui }}>On  Being Human</li>
-                </ul>
+                return(
+                    <div className="book-list" style={{ color:theme.syntax, background:theme.bg }}>
+
+                        <ul>
+                            <li style={{ background:theme.ui }}>Road To Mecca</li>
+                            <li style={{ background:theme.ui }}>The Divine Reality</li>
+                            <li style={{ background:theme.ui }}>On  Being Human</li>
+                        </ul>
                 
-            </div>
+                    </div>
+                )
+
+                
+            }}
+             
+            </ThemeContext.Consumer>
+           
         )
     }
 }
